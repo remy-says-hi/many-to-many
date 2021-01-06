@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ToDoList.Models.Item
+
+<h2>Add a category</h2>
+
+<h4>Add a category to this task: @Html.DisplayFor(model => model.Description)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ItemId)
+
+    @Html.Label("Select category")
+    @Html.DropDownList("CategoryId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
